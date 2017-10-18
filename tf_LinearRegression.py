@@ -2,7 +2,6 @@ import tensorflow as tf
 import numpy as np
 
 
-
 # linear regression in tensorflow
 
 class LinearRegression(object):
@@ -49,16 +48,13 @@ class LinearRegression(object):
     def predict(self, test_X):
         pred = tf.matmul(test_X, self.w)+self.b
         with tf.Session() as sess:
-            preds = sess.run(pred)
-        return preds
-
-
+            return sess.run(pred)
 
 
 if __name__=="__main__":
     from sklearn import datasets
 
-    boston = datasets.load_iris()
+    boston = datasets.load_boston()
     train_X = np.mat(boston.data)
     train_Y = np.mat(boston.target).T
     model = LinearRegression(batch_size=10)
