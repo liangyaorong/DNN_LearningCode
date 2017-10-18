@@ -5,7 +5,6 @@ import pandas as pd
 
 
 class LogisticRegression(object):
-
     def __init__(self, learning_rate=1e-4, epoch=10000, batch_size=50):
         self.learning_rate = learning_rate
         self.epoch = epoch
@@ -46,14 +45,11 @@ class LogisticRegression(object):
                         old_accuracy = train_accuracy
 
                 for n in range(n_batch):
-
                     train_X_batch = train_X[n * self.batch_size: (n + 1) * self.batch_size, :]
                     train_Y_batch = train_Y[n * self.batch_size: (n + 1) * self.batch_size, :]
-
                     sess.run(optimizer, feed_dict={x: train_X_batch, y: train_Y_batch})
 
             self.w, self.b = sess.run([w, b])
-
         return self
 
 
@@ -73,7 +69,6 @@ if __name__ == "__main__":
     from tensorflow.examples.tutorials.mnist import input_data
 
     mnist = input_data.read_data_sets('./', one_hot=True)
-
     train_X = mnist.train.images
     train_Y = mnist.train.labels
     test_X = mnist.test.images
