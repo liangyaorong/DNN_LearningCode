@@ -5,7 +5,6 @@ import numpy as np
 # linear regression in tensorflow
 
 class LinearRegression(object):
-
     def __init__(self, learning_rate=1e-4, epoch=10000, batch_size=50):
         self.learning_rate = learning_rate
         self.epoch = epoch
